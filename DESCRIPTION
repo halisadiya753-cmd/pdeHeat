@@ -1,0 +1,15 @@
+Package: pdeHeat
+Title: Numerical Simulation of the 1D Heat equation
+Version: 0.0.0.9000
+Authors@R: 
+    person("Halimatou", "Sadiya", , "halisadiya753@gmail.com", role = c("aut", "cre"))
+Description: Provides numerical solvers for the 1D heat equation using explicit and implicit finite difference schemes, including visualization toolsand export functions.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends: R(>= 4.0)
+Import: 
+  stats,
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 7.3.3
