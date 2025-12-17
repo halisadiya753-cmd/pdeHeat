@@ -13,3 +13,5 @@ Import:
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.3.3
+URL: https://github.com/halisadiya753-cmd/pdeHeat
+BugReports: https://github.com/halisadiya753-cmd/pdeHeat/issues
