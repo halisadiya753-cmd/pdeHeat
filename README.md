@@ -6,9 +6,9 @@ pdeHeat
 **pdeHeat** is an R package designed for the modeling and numerical
 simulation of one-dimensional (1D) heat diffusion. It is specifically
 tailored to validate the thermal safety of processes such as food
-pasteurization.
-
-## The package allows users to solve the heat equation using classic numerical methods (Explicit and Crank-Nicolson) and provides integrated tools for visualization and safety analysis.
+pasteurization. The package allows users to solve the heat equation
+using classic numerical methods (Explicit and Crank-Nicolson) and
+provides integrated tools for visualization and safety analysis. —
 
 ## 📦 Installation
 
