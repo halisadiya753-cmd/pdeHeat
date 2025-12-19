@@ -1,0 +1,97 @@
+---
+title: "pdeHeat"
+output: github_document
+---
+# pdeHeat
+**pdeHeat** is an R package designed for the modeling and numerical simulation of one-dimensional (1D) heat diffusion. It is specifically tailored to validate the thermal safety of processes such as food pasteurization.
+
+The package allows users to solve the heat equation using classic numerical methods (Explicit and Crank-Nicolson) and provides integrated tools for visualization and safety analysis.
+---
+
+## 📦 Installation
+
+### From GitHub (recommended)
+
+You first need to install **devtools** (if not already installed):
+
+```r
+install.packages("devtools")
+devtools::install_github("halisadiya753-cmd/pdeHeat")
+```
+
+## 🔧 Usage Examples
+
+```r
+library(pdeHeat)
+
+# 1. Grid Configuration (L=40mm, total time=1200s)
+grid <- initialize_grid(L = 40, nx = 41, t = 1200)
+
+# 2. Initial Condition (Uniform temperature of 4°C)
+u0 <- initial_condition(grid$x, type = "constant", value = 4)
+
+# 3. Boundary Conditions (85°C heating on both sides)
+bc <- list(left = 85, right = 85)
+
+# 4. Simulation using the Crank-Nicolson method
+# alpha = 0.12 (Typical thermal diffusivity for moist food/meat)
+U <- solve_heat1d_cn(u0, L = 40, alpha = 0.12, dt = grid$dt, t = 1200, bc = bc)
+
+# 5. Food Safety Validation
+# Target threshold of 72°C required for at least 15 seconds
+safety_result <- check_safety(U, dt = grid$dt, threshold = 72, required_time = 15)
+```
+## 📊 Visualization
+```r
+# Generate a temporal Heatmap
+plot_heat_map(U)
+
+# Display the temperature profile at the end of the simulation
+plot_solution_profile(U, time_index = nrow(U))
+```
+---
+
+## 🛠️ Help & Documentation
+
+After installation, you can access documentation directly in R:
+
+```r
+?solve_heat1d_cn
+?check_safety
+```
+Or list all functions:
+
+```r
+help(package = "pdeHeat")
+```
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+If you want to contribute:
+
+1. Fork the repository on GitHub
+
+2. Create a new branch
+
+3. Make your changes
+
+4. Submit a pull request
+
+5. For major changes, open an Issue first to discuss the idea
+
+---
+
+## 📄 License
+
+pdeHeat is released under the MIT License, allowing free use, modification, and distribution.
+
+---
+
+## 🙏 Acknowledgments
+
+Thank you for using pdeHeat for your thermal simulations. This project was developed to facilitate the learning of numerical computation applied to food safety.
+
+Happy coding! 🚀
